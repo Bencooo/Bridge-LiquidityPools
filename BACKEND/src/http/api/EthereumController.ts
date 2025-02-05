@@ -10,4 +10,15 @@ export default (superRouter: Router) => {
     router.get("/", (req: Request, res: Response) => {
         ApiResponses.httpCreated(res, { Hello: "world" });
     });
+
+    // Endpoint de dépôt ERC-20
+    router.post("/deposit/:address/:amount", async (req: Request, res: Response) => {
+        const { address, amount } = req.params;
+        try {
+            const tx = await depositOnEthereum(address, amount);
+            ApiResponses.httpSuccess(res, { success: true, tx });
+        } catch (error) {
+            ApiResponses.httpInternalError(res, error);
+        }
+    });
 };
