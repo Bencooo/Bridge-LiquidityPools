@@ -1,7 +1,7 @@
 import { JsonRpcProvider, Wallet, Contract, parseUnits, formatEther } from "ethers";
 import dotenv from "dotenv";
-import vaultAbi from "../abis/BencoVault.json";
-import erc20Abi from "../abis/BencoToken.json";
+import vaultAbi from "../../../abi/vaultContract";
+import erc20Abi from "../../../abi/erc20Abi";
 
 dotenv.config();
 
